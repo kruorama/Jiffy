@@ -11,13 +11,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  }
+}
 
-  .top,
-  .middle,
-  .indicators {
-    position: relative;
-    text-align: center;
+.top,
+.middle,
+.indicators {
+  position: relative;
+  text-align: center;
   }
 
 input {
@@ -33,7 +33,6 @@ input:focus {
   outline: none;
   padding-bottom: 10px;
   border-bottom: 5px solid #323232;
-
 }
 
 .search-input {

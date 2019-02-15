@@ -4,21 +4,23 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-<div class="top">
-  <h1 class="title">Jiffy</h1>
-  <a class="search-clear">
+<div class="top grid">
+  <h1 class="title full-area">Jiffy</h1>
+  <a class="search-clear full-area">
     <img src="img/close.svg">
   </a>
 </div>
 
 <div class="middle">
   <input class="search-input" placeholder="Type something">
-  <div class="videos"></div>
+  <div class="videos">
+    <video class = "video" class="video visible" muted="" trueloop="" autoplay="" src="https://media3.giphy.com/media/GzYCrVVVu0y88/giphy.mp4"></video>
+  </div>
 </div>
 
-<div class="indicators">
-  <img class="spinner" src="img/oval.svg">
-  <span class="search-hint">Hit enter to search</span>
+<div class="indicators grid">
+  <img class="spinner full-area" src="img/oval.svg">
+  <span class="search-hint full-area">Hit enter to search</span>
 </div>
 <script src='script/jiffy.js'></script>
 </body>

@@ -1,4 +1,4 @@
-const link = 'https://api.giphy.com/v1/gifs/search?api_key=FdvMdcL1IDJ80NzsIe4NpJOU3eeO3NNh&q=doggo&limit=25&offset=0&rating=G&lang=en'
+const link = 'https://api.giphy.com/v1/gifs/search?api_key=FdvMdcL1IDJ80NzsIe4NpJOU3eeO3NNh&q=doggo&limit=50&offset=0&rating=G&lang=en'
 
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -21,7 +21,8 @@ function addVideo(link) {
     return response.json();
   }).then(json => {
     // get the needed gif src
-    const gif = json.data[0]
+    number = random(1,50)
+    const gif = json.data[number]
     const src = gif.images.original.mp4
 
     const videosEl = document.querySelector('.videos')
@@ -32,4 +33,26 @@ function addVideo(link) {
   })
 
 }
-addVideo(link)
+
+function getInput() {
+  const searchEl = document.querySelector('.search-input')
+  const hintEl = document.querySelector('.search-hint')
+  const doSearch = event => {
+    const searchTerm = searchEl.value
+
+    if (searchTerm.length > 2) {
+      document.body.classList.add('show-hint')
+      hintEl.innerHTML = `Hit Enter to search ${searchTerm}`
+    } else {
+      document.body.classList.remove('show-hint')
+    }
+    if (event.key === 'Enter' && searchTerm.length > 2) {
+      const link = `https://api.giphy.com/v1/gifs/search?api_key=FdvMdcL1IDJ80NzsIe4NpJOU3eeO3NNh&q=${searchTerm}&limit=50&offset=0&rating=G&lang=en`
+      addVideo(link)
+    }
+  }
+  searchEl.addEventListener('keyup', doSearch)
+}
+
+getInput()
+//addVideo(link)

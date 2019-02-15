@@ -69,5 +69,15 @@ input {
 .video {
   grid-area:1/1;
   max-width: 500px;
+  max-height: 500px;
   display: block;
+}
+
+.search-hint {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.show-hint .search-hint {
+  opacity: 1
 }
